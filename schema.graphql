@@ -1,0 +1,63 @@
+type Chat {
+  id: ID!
+  name: String
+  picture: URL
+  lastMessage: Message
+  messages(limit: Int!, after: Float): MessagesResult!
+  participants: [User!]!
+}
+
+"""Use JavaScript Date object for date/time fields."""
+scalar DateTime
+
+type Message {
+  id: ID!
+  content: String!
+  createdAt: DateTime!
+  chat: Chat
+  sender: User
+  recipient: User
+  isMine: Boolean!
+}
+
+type MessagesResult {
+  cursor: Float
+  hasMore: Boolean!
+  messages: [Message!]!
+}
+
+type Mutation {
+  _dummy: Boolean
+  signIn(username: String!, password: String!): User
+  signUp(name: String!, username: String!, password: String!, passwordConfirm: String!): User
+  addMessage(chatId: ID!, content: String!): Message
+  addChat(recipientId: ID!): Chat
+  removeChat(chatId: ID!): ID
+}
+
+type Query {
+  _dummy: Boolean
+  me: User
+  users: [User!]!
+  chats: [Chat!]!
+  chat(chatId: ID!): Chat
+}
+
+type Subscription {
+  _dummy: Boolean
+  messageAdded: Message!
+  chatAdded: Chat!
+  chatRemoved: ID!
+}
+
+"""
+A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
+"""
+scalar URL
+
+type User {
+  id: ID!
+  name: String!
+  picture: URL
+}
+

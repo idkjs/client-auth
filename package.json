@@ -1,0 +1,71 @@
+{
+  "name": "whats-app-reason",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bs-log": "^1.1.0",
+    "@ahrefs/bs-emotion": "1.0.1",
+    "@apollo/react-hooks": "3.1.5",
+    "@davesnx/styled-ppx": "^0.19.0",
+    "date-fns": "2.14.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.1",
+    "reason-apollo": "0.19.0",
+    "reason-apollo-hooks": "6.0.1",
+    "reason-react": "0.9.0-dev.1",
+    "reason-react-compat": "^1.0.1",
+    "reason-react-update": "^1.0.0",
+    "reschema": "^1.3.0",
+    "source-map-explorer": "2.4.2",
+    "subscriptions-transport-ws": "0.9.16",
+    "bs-chakra": "https://github.com/Thinkei/bs-chakra",
+    "bs-css": "^11.0.0",
+    "re-tailwind": "0.0.3"
+  },
+  "devDependencies": {
+    "bs-log": "^1.1.0",
+    "@baransu/graphql_ppx_re": "^0.7.1",
+    "bs-platform": "8.0.0-dev.1",
+    "get-graphql-schema": "2.1.2",
+    "graphql-cli": "3.0.14",
+    "lenses-ppx": "5.1.0",
+    "reenv": "0.3.0",
+    "typescript": "3.9.3"
+  },
+  "proxy": "http://localhost:4000",
+  "scripts": {
+    "bsb": "BS_LOG=* bsb -clean -make-world -w",
+    "re:build": "bsb -make-world -clean-world",
+    "watch": "BS_WATCH_CLEAR=true BS_LOG=* bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject",
+    "format": "prettier \"**/*.{ts,tsx,css}\" --write",
+    "size": "source-map-explorer 'build/static/js/*.js'",
+    "introspection": "get-graphql-schema http://localhost:4000/graphql -j > graphql_schema.json",
+    "introspection:gql": "get-graphql-schema http://localhost:4000/graphql > schema.graphql"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-router-transition)/)"
+    ]
+  }
+}

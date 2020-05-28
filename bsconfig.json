@@ -1,0 +1,41 @@
+{
+	"name": "whats-app-reason",
+	"reason": {
+		"react-jsx": 3
+	},
+	"bsc-flags": [ "-bs-super-errors" ],
+	"sources": [
+		{
+			"dir": "src",
+			"subdirs": true
+		}
+	],
+	"package-specs": [
+		{
+			"module": "es6",
+			"in-source": true
+		}
+	],
+	"suffix": ".bs.js",
+	"namespace": true,
+	"bs-dependencies": [
+		"bs-log",
+		"@ahrefs/bs-emotion",
+		"reason-react",
+		"reason-apollo-hooks",
+		"reason-apollo",
+		"reason-react-update",
+		"reschema",
+		"reason-react-compat",
+		"re-tailwind",
+		"bs-log",
+		"bs-css",
+		"bs-chakra"
+	],
+	"ppx-flags": [
+		"@baransu/graphql_ppx_re/ppx",
+		"@davesnx/styled-ppx/styled-ppx",
+		"lenses-ppx/ppx"
+	],
+	"refmt": 3
+}
