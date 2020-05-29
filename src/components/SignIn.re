@@ -63,7 +63,9 @@ let make = (~setSession) => {
               e->ReactEvent.Form.target##value->UpdateUsername->dispatch
             }
             isRequired=true
-            isInvalid={touched && !FormValidation.nonEmptyString(state.username)}
+            isInvalid={
+              touched && !FormValidation.nonEmptyString(state.username)
+            }
           />
           <br />
           <br />
@@ -79,7 +81,7 @@ let make = (~setSession) => {
             }
           />
           {switch (result) {
-           | Error(e) => <ErrorAlert message=e.message />
+           | Error(e) => <ErrorAlert message={e.message} />
            | _ => React.null
            }}
           <br />
@@ -132,16 +134,9 @@ let make = (~setSession) => {
                        )
                      | Data(data) =>
                        open Session;
-                       switch (
-                         data##signIn##id,
-                         
-                       ) {
-                       | (Some(id), Some(user)) =>
-                         setSession({
-                           userId: user##id,
-                           squadId:
-                             Belt.Option.map(user##squad, squad => squad##id),
-                         })
+                       switch (data##signIn##token,data##signIn##user) {
+                       | (Some(tk), Some(id)) =>
+                         setSession({token: tk, userId: id##id})
                        | (_, _) =>
                          toast(
                            ~title="Oops",
