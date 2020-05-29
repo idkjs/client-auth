@@ -134,10 +134,10 @@ let make = (~setSession) => {
                        )
                      | Data(data) =>
                        open Session;
-                       switch (data##signIn##token,data##signIn##user) {
-                       | (Some(tk), Some(id)) =>
-                         setSession({token: tk, userId: id##id})
-                       | (_, _) =>
+                       switch (data##signIn##id) {
+                       | (Some(id)) =>
+                         setSession({token: id, userId: id})
+                       | (_) =>
                          toast(
                            ~title="Oops",
                            ~description="Something went wrong!",
