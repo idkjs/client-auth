@@ -8,7 +8,6 @@
     "@davesnx/styled-ppx": "^0.19.0",
     "bs-chakra": "https://github.com/Thinkei/bs-chakra",
     "bs-css": "^11.0.0",
-    "bs-log": "^1.1.0",
     "date-fns": "2.14.0",
     "re-tailwind": "0.0.3",
     "react": "16.13.1",
@@ -30,7 +29,6 @@
     "get-graphql-schema": "2.1.2",
     "graphql-cli": "3.0.14",
     "lenses-ppx": "5.1.0",
-    "reenv": "0.3.0",
     "typescript": "3.9.3"
   },
   "proxy": "http://localhost:4000",
